@@ -22,8 +22,30 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 package main
 
-func main() {
-	var a app
-	a.init()
-	a.close()
+import "github.com/nsf/termbox-go"
+
+type keyboard struct{}
+
+func (k *keyboard) init() { k.read() }
+
+func (k *keyboard) read() {
+
+loopyMcLoopface:
+	for {
+
+		switch e := termbox.PollEvent(); e.Type {
+
+		case termbox.EventKey:
+
+			switch {
+			case e.Key == termbox.KeyCtrlC:
+				break loopyMcLoopface
+			}
+
+		case termbox.EventError:
+			panic(e.Err)
+		}
+
+	}
+
 }

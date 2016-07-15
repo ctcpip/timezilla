@@ -22,8 +22,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 package main
 
-func main() {
-	var a app
-	a.init()
-	a.close()
-}
+var s screen
