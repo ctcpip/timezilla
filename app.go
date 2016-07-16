@@ -24,6 +24,8 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"strconv"
 	"time"
 
 	"github.com/nsf/termbox-go"
@@ -34,8 +36,20 @@ type app struct{}
 func (a *app) init() {
 
 	var k keyboard
+	var d time.Duration
 
-	d := time.Second * 10
+	if len(os.Args) == 2 {
+
+		if a, err := strconv.ParseFloat(os.Args[1], 64); err == nil {
+			d = time.Millisecond * time.Duration(a*60000)
+		} else {
+			d = time.Minute * 25
+		}
+
+	} else {
+		d = time.Minute * 25
+	}
+
 	timer := time.NewTimer(d)
 	abort := make(chan bool, 1)
 
