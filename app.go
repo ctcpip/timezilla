@@ -34,23 +34,36 @@ type app struct{}
 func (a *app) init() {
 
 	var k keyboard
-	var b bool
-	var c termbox.Attribute
-	var remainingTime time.Duration
 
-	// TODO: parse command line args
-
-	duration := time.Second * 10
-	timer := time.NewTimer(duration)
-	ticker := time.NewTicker(time.Second * 1)
-	countdown := time.NewTicker(time.Second * 1)
-	endTime := time.Now().Add(duration)
+	d := time.Second * 10
+	timer := time.NewTimer(d)
+	abort := make(chan bool, 1)
 
 	s.init()
 
-	go func() {
+	go countdown(d, abort)
 
-		for _ = range countdown.C {
+	go func() {
+		<-timer.C
+		abort <- false
+		alert()
+	}()
+
+	k.init()
+
+}
+
+func countdown(d time.Duration, abort chan bool) {
+
+	var remainingTime time.Duration
+
+	t := time.NewTicker(time.Second * 1)
+	endTime := time.Now().Add(d)
+
+	for {
+
+		select {
+		case <-t.C:
 
 			for x := 0; x < 80; x++ {
 				termbox.SetCell(x, 3, ' ', termbox.ColorDefault, termbox.ColorDefault)
@@ -61,43 +74,44 @@ func (a *app) init() {
 
 			termbox.Flush()
 
+		case <-abort:
+			return
 		}
 
-	}()
+	}
 
-	go func() {
+}
 
-		<-timer.C
+func alert() {
 
-		countdown.Stop()
+	var b bool
+	var c termbox.Attribute
 
-		fmt.Print("\a")
+	t := time.NewTicker(time.Second * 1)
 
-		for _ = range ticker.C {
+	fmt.Print("\a")
 
-			if b {
-				c = termbox.ColorBlack
-			} else {
-				c = termbox.ColorRed
+	for _ = range t.C {
+
+		if b {
+			c = termbox.ColorBlack
+		} else {
+			c = termbox.ColorRed
+		}
+
+		for y := 2; y < 24; y++ {
+
+			for x := 0; x < 80; x++ {
+				termbox.SetCell(x, y, ' ', c, c)
 			}
-
-			for y := 2; y < 24; y++ {
-
-				for x := 0; x < 80; x++ {
-					termbox.SetCell(x, y, ' ', c, c)
-				}
-
-			}
-
-			termbox.Flush()
-
-			b = !b
 
 		}
 
-	}()
+		termbox.Flush()
 
-	k.init()
+		b = !b
+
+	}
 
 }
 
