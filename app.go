@@ -52,6 +52,8 @@ func (a *app) init() {
 
 	}
 
+	d += time.Second * 1
+
 	timer := time.NewTimer(d)
 
 	go countdown(d, abort)
