@@ -26,6 +26,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/nsf/termbox-go"
@@ -73,7 +74,7 @@ func countdown(d time.Duration, abort chan bool) {
 	endTime := time.Now().Add(d)
 
 	remainingTime = endTime.Sub(time.Now())
-	s.writeText(remainingTime.String(), 3, 3)
+	s.writeText(getTimeString(remainingTime), 3, 3)
 	termbox.Flush()
 
 	for {
@@ -87,7 +88,7 @@ func countdown(d time.Duration, abort chan bool) {
 
 			remainingTime = endTime.Sub(time.Now())
 
-			s.writeText(remainingTime.String(), 3, 3)
+			s.writeText(getTimeString(remainingTime), 3, 3)
 
 			termbox.Flush()
 
@@ -96,6 +97,16 @@ func countdown(d time.Duration, abort chan bool) {
 		}
 
 	}
+
+}
+
+func getTimeString(d time.Duration) string {
+
+	if d < time.Second*1 {
+		return "0"
+	}
+
+	return strings.Split(d.String(), ".")[0] + "s"
 
 }
 
