@@ -38,6 +38,10 @@ func (a *app) init() {
 	var k keyboard
 
 	d := time.Minute * 25
+	timer := time.NewTimer(d)
+	abort := make(chan bool, 1)
+
+	s.init()
 
 	if len(os.Args) == 2 {
 
@@ -46,11 +50,6 @@ func (a *app) init() {
 		}
 
 	}
-
-	timer := time.NewTimer(d)
-	abort := make(chan bool, 1)
-
-	s.init()
 
 	go countdown(d, abort)
 
