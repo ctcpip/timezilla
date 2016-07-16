@@ -38,7 +38,7 @@ func (a *app) init() {
 	var k keyboard
 
 	d := time.Minute * 25
-	timer := time.NewTimer(d)
+
 	abort := make(chan bool, 1)
 
 	s.init()
@@ -50,6 +50,8 @@ func (a *app) init() {
 		}
 
 	}
+
+	timer := time.NewTimer(d)
 
 	go countdown(d, abort)
 
@@ -84,6 +86,7 @@ func countdown(d time.Duration, abort chan bool) {
 			}
 
 			remainingTime = endTime.Sub(time.Now())
+
 			s.writeText(remainingTime.String(), 3, 3)
 
 			termbox.Flush()
