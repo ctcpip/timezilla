@@ -60,6 +60,10 @@ func countdown(d time.Duration, abort chan bool) {
 	t := time.NewTicker(time.Second * 1)
 	endTime := time.Now().Add(d)
 
+	remainingTime = endTime.Sub(time.Now())
+	s.writeText(remainingTime.String(), 3, 3)
+	termbox.Flush()
+
 	for {
 
 		select {
