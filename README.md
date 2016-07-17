@@ -1,11 +1,11 @@
 # timezilla
+
 a simple timer for the console/terminal
 
 ![Development Status](https://img.shields.io/badge/development%20status-pre--alpha-red.svg)
 [![Code Climate](https://img.shields.io/codeclimate/github/ctcpip/netrisse.svg)](https://codeclimate.com/github/ctcpip/timezilla)
 [![Issue Count](https://img.shields.io/codeclimate/issues/github/ctcpip/netrisse.svg)](https://codeclimate.com/github/ctcpip/timezilla)
 [![License](https://img.shields.io/badge/license-GNU%20GPLv3-blue.svg)](./LICENSE)
-
 
 ## how it works
 
@@ -23,13 +23,13 @@ _minutes_ specified in fractional minutes
 if no _minutes_ specified, timer will default to 25 minutes ([pomodoro](http://en.wikipedia.org/wiki/Pomodoro_Technique) standard)
 
 ~~~ sh
-$ timezilla       # default 25 minute timer
+timezilla       # default 25 minute timer
 
-$ timezilla .5    # 30 second timer
-$ timezilla 1     # 1 minute timer
-$ timezilla 2.5   # 2 minute, 30 second timer
-$ timezilla 5     # 5 minute timer
-$ timezilla 10.1  # 10 minute, six second timer
+timezilla .5    # 30 second timer
+timezilla 1     # 1 minute timer
+timezilla 2.5   # 2 minute, 30 second timer
+timezilla 5     # 5 minute timer
+timezilla 10.1  # 10 minute, six second timer
 ~~~
 
 ### inspiration
