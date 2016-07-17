@@ -29,6 +29,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/0xAX/notificator"
+	"github.com/kardianos/osext"
 	"github.com/nsf/termbox-go"
 )
 
@@ -116,10 +118,18 @@ func alert() {
 
 	var b bool
 	var c termbox.Attribute
+	var notify *notificator.Notificator
 
 	t := time.NewTicker(time.Second * 1)
+	appPath, err := osext.ExecutableFolder()
+	if err != nil {
+		panic(err)
+	}
 
-	fmt.Print("\a")
+	fmt.Print("\a") // ring the terminal bell
+
+	notify = notificator.New(notificator.Options{})
+	notify.Push("timezilla", "time is up!", appPath+"/clock.png", notificator.UR_CRITICAL)
 
 	for _ = range t.C {
 
