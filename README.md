@@ -42,7 +42,7 @@ this project uses...
 
 * [termbox-go](http://github.com/nsf/termbox-go)
 * [notificator](http://github.com/0xAX/notificator)
-* [osext](httpp://github.com/kardianos/osext)
+* [osext](http://github.com/kardianos/osext)
 * [Go](http://golang.org)
 * [semantic versioning](http://semver.org/)
 
