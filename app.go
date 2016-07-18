@@ -26,7 +26,6 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-	"strings"
 	"time"
 
 	"github.com/0xAX/notificator"
@@ -39,9 +38,9 @@ type app struct{}
 func (a *app) init() {
 
 	var k keyboard
+	var d time.Duration
 
 	booContinue := true
-	var d time.Duration
 
 	if len(os.Args) > 1 {
 
@@ -115,16 +114,6 @@ func countdown(d time.Duration, abort chan bool) {
 
 }
 
-func getTimeString(d time.Duration) string {
-
-	if d < time.Second*1 {
-		return "0"
-	}
-
-	return strings.Split(d.String(), ".")[0] + "s"
-
-}
-
 func alert() {
 
 	var b bool
@@ -163,16 +152,6 @@ func alert() {
 		b = !b
 
 	}
-
-}
-
-func printHelp(arg string) {
-
-	if arg != "-h" {
-		fmt.Print("\ntimezilla: invalid argument -- '" + arg + "'\n")
-	}
-
-	fmt.Print(strHelp)
 
 }
 
