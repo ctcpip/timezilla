@@ -22,39 +22,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 package main
 
-import "github.com/nsf/termbox-go"
+const strHeader = "timezilla 0.1.0 (C) 2016  Chris de Almeida     \"timezilla -h\" for more info"
 
-type screen struct{}
+const strHelp = `
+timezilla 0.1.0 (C) 2016  Chris de Almeida     http://github.com/ctcpip/timezilla
 
-func (s *screen) init() {
+a simple timer for the console/terminal
 
-	err := termbox.Init()
+usage: timezilla [minutes]
+   minutes specified in fractional minutes
+   if no minutes specified, timer will default to 25 minutes (pomodoro standard)
 
-	if err != nil {
-		panic(err)
-	}
+-the timer will count down from the specified time
+-when the time is up, three things happen:
+   1. an OS notification is sent (using libnotify or growl)
+   2. the terminal screen will flash red on/off
+   3. the terminal bell will ring
+-use CTRL+C to exit
 
-	termbox.Clear(termbox.ColorDefault, termbox.ColorDefault)
-	s.writeText(strHeader, 0, 0)
-	termbox.Flush()
-
-}
-
-func (s *screen) writeText(text string, startX, y int) {
-
-	currX := startX
-
-	for i := 0; i < len(text); i++ {
-		termbox.SetCell(currX, y, rune(text[i]), termbox.ColorDefault, termbox.ColorDefault)
-		currX++
-	}
-
-}
-
-func (s *screen) close() {
-
-	if termbox.IsInit {
-		defer termbox.Close()
-	}
-
-}
+`

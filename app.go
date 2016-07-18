@@ -40,33 +40,44 @@ func (a *app) init() {
 
 	var k keyboard
 
-	d := time.Minute * 25
+	booContinue := true
+	var d time.Duration
 
-	abort := make(chan bool, 1)
-
-	s.init()
-
-	if len(os.Args) == 2 {
+	if len(os.Args) > 1 {
 
 		if a, err := strconv.ParseFloat(os.Args[1], 64); err == nil {
 			d = time.Millisecond * time.Duration(a*60000)
+		} else {
+			printHelp(os.Args[1])
+			booContinue = false
 		}
 
 	}
 
-	d += time.Second * 1
+	if booContinue {
 
-	timer := time.NewTimer(d)
+		if d == 0 {
+			d = time.Minute * 25
+		}
 
-	go countdown(d, abort)
+		d += time.Second * 1
 
-	go func() {
-		<-timer.C
-		abort <- false
-		alert()
-	}()
+		timer := time.NewTimer(d)
+		abort := make(chan bool, 1)
 
-	k.init()
+		s.init()
+
+		go countdown(d, abort)
+
+		go func() {
+			<-timer.C
+			abort <- false
+			alert()
+		}()
+
+		k.init()
+
+	}
 
 }
 
@@ -152,6 +163,16 @@ func alert() {
 		b = !b
 
 	}
+
+}
+
+func printHelp(arg string) {
+
+	if arg != "-h" {
+		fmt.Print("\ntimezilla: invalid argument -- '" + arg + "'\n")
+	}
+
+	fmt.Print(strHelp)
 
 }
 
