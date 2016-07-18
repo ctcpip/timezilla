@@ -3,8 +3,8 @@
 a simple timer for the console/terminal
 
 ![Development Status](https://img.shields.io/badge/development%20status-pre--alpha-red.svg)
-[![Code Climate](https://img.shields.io/codeclimate/github/ctcpip/netrisse.svg)](https://codeclimate.com/github/ctcpip/timezilla)
-[![Issue Count](https://img.shields.io/codeclimate/issues/github/ctcpip/netrisse.svg)](https://codeclimate.com/github/ctcpip/timezilla)
+[![Code Climate](https://img.shields.io/codeclimate/github/ctcpip/timezilla.svg)](https://codeclimate.com/github/ctcpip/timezilla)
+[![Issue Count](https://img.shields.io/codeclimate/issues/github/ctcpip/timezilla.svg)](https://codeclimate.com/github/ctcpip/timezilla/issues)
 [![License](https://img.shields.io/badge/license-GNU%20GPLv3-blue.svg)](./LICENSE)
 
 ## how it works
