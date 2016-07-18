@@ -25,13 +25,19 @@ package main
 const strHeader = "timezilla 0.1.0 (C) 2016  Chris de Almeida     \"timezilla -h\" for more info"
 
 const strHelp = `
-timezilla 0.1.0 (C) 2016  Chris de Almeida     http://github.com/ctcpip/timezilla
+timezilla 0.1.0 (C) 2016  Chris de Almeida    http://github.com/ctcpip/timezilla
 
 a simple timer for the console/terminal
 
 usage: timezilla [minutes]
    minutes specified in fractional minutes
    if no minutes specified, timer will default to 25 minutes (pomodoro standard)
+
+timezilla       # default 25 minute timer
+timezilla .5    # 30 second timer
+timezilla 2.5   # 2 minute, 30 second timer
+timezilla 5     # 5 minute timer
+timezilla 10.1  # 10 minute, six second timer
 
 -the timer will count down from the specified time
 -when the time is up, three things happen:
