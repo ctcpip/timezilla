@@ -28,7 +28,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/0xAX/notificator"
+	"github.com/ctcpip/notifize"
 	"github.com/kardianos/osext"
 	"github.com/nsf/termbox-go"
 )
@@ -118,16 +118,12 @@ func countdown(d time.Duration, abort chan bool) {
 
 func alertNotification() {
 
-	var notify *notificator.Notificator
-
 	appPath, err := osext.ExecutableFolder()
 	if err != nil {
 		panic(err)
 	}
 
-	// TODO - create a new notification package for use here instead
-	notify = notificator.New(notificator.Options{})
-	notify.Push("timezilla", "time is up!", appPath+"/clock.png", notificator.UR_CRITICAL)
+	notifize.Display("timezilla", "time is up!", true, appPath+"/clock.png")
 
 }
 
