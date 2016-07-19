@@ -41,7 +41,7 @@ I started this project to provide a simple timer for use with the [pomodoro tech
 this project uses...
 
 * [termbox-go](http://github.com/nsf/termbox-go)
-* [notificator](http://github.com/0xAX/notificator)
+* [notifize](http://github.com/ctcpip/notifize)
 * [osext](http://github.com/kardianos/osext)
 * [Go](http://golang.org)
 * [semantic versioning](http://semver.org/)
