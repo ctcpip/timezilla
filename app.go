@@ -71,7 +71,9 @@ func (a *app) init() {
 		go func() {
 			<-timer.C
 			abort <- false
-			alert()
+			go alertBell()
+			go alertVisual()
+			alertNotification()
 		}()
 
 		k.init()
@@ -114,22 +116,41 @@ func countdown(d time.Duration, abort chan bool) {
 
 }
 
-func alert() {
+func alertNotification() {
 
-	var b bool
-	var c termbox.Attribute
 	var notify *notificator.Notificator
 
-	t := time.NewTicker(time.Second * 1)
 	appPath, err := osext.ExecutableFolder()
 	if err != nil {
 		panic(err)
 	}
 
-	fmt.Print("\a") // ring the terminal bell
-
+	// TODO - create a new notification package for use here instead
 	notify = notificator.New(notificator.Options{})
 	notify.Push("timezilla", "time is up!", appPath+"/clock.png", notificator.UR_CRITICAL)
+
+}
+
+func alertBell() {
+
+	// ring the terminal bell
+
+	fmt.Print("\a")
+
+	t := time.NewTicker(time.Second * 30)
+
+	for _ = range t.C {
+		fmt.Print("\a")
+	}
+
+}
+
+func alertVisual() {
+
+	var b bool
+	var c termbox.Attribute
+
+	t := time.NewTicker(time.Second * 1)
 
 	for _ = range t.C {
 
