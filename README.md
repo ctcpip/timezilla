@@ -11,10 +11,14 @@ a simple timer for the console/terminal
 
 * the timer will count down from the specified time
 * when the time is up, three things happen:
-  1. an OS notification is sent (using libnotify or growl)
-  1. the terminal screen will flash red on/off
-  1. the terminal bell will ring
+    1. the terminal screen will flash red on/off
+    1. the terminal bell will ring _(every 30 seconds)_
+    1. a desktop notification is sent _(only for the following operating systems*)_
+        * __GNU/Linux__ using _libnotify_ `notify-send`
+        * __OS X 10.9+__ using _AppleScript_ `display notification`
 * use CTRL+C to exit
+
+\*see [notifize](http://github.com/ctcpip/notifize) package for more information on desktop notification support for other operating systems
 
 ## usage instructions
 
