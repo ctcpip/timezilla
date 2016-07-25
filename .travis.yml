@@ -21,9 +21,6 @@ before_deploy:
   - env GOOS=openbsd GOARCH=386 go build -o timezilla-openbsd-386
   - env GOOS=openbsd GOARCH=amd64 go build -o timezilla-openbsd-amd64
   - env GOOS=openbsd GOARCH=arm go build -o timezilla-openbsd-arm
-  - env GOOS=plan9 GOARCH=386 go build -o timezilla-plan9-386
-  - env GOOS=plan9 GOARCH=amd64 go build -o timezilla-plan9-amd64
-  - env GOOS=solaris GOARCH=amd64 go build -o timezilla-solaris-amd64
   - env GOOS=windows GOARCH=386 go build -o timezilla-windows-386
   - env GOOS=windows GOARCH=amd64 go build -o timezilla-windows-amd64
 deploy:
@@ -50,9 +47,6 @@ deploy:
     - "timezilla-openbsd-386"
     - "timezilla-openbsd-amd64"
     - "timezilla-openbsd-arm"
-    - "timezilla-plan9-386"
-    - "timezilla-plan9-amd64"
-    - "timezilla-solaris-amd64"
     - "timezilla-windows-386"
     - "timezilla-windows-amd64"
   skip_cleanup: true
