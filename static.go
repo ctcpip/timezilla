@@ -22,10 +22,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 package main
 
-const strHeader = "timezilla 0.1.0 (C) 2016  Chris de Almeida     \"timezilla -h\" for more info"
+import "fmt"
 
-const strHelp = `
-timezilla 0.1.0 (C) 2016  Chris de Almeida    http://github.com/ctcpip/timezilla
+const version = "1.0.0"
+
+var strHeader = fmt.Sprintf("timezilla %s (C) 2016  Chris de Almeida     \"timezilla -h\" for more info", version)
+
+var strHelp = fmt.Sprintf(`
+timezilla %s (C) 2016  Chris de Almeida    http://github.com/ctcpip/timezilla
 
 a simple timer for the console/terminal
 
@@ -46,4 +50,4 @@ timezilla 10.1  # 10 minute, six second timer
    3. the terminal bell will ring
 -use CTRL+C to exit
 
-`
+`, version)
