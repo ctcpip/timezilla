@@ -2,7 +2,33 @@ language: go
 before_script:
   - go vet ./...
 before_deploy:
-  - env GOOS=linux GOARCH=amd64 go build -o timezilla_linux_amd64
+  - env GOOS=darwin GOARCH=386 go build -o timezilla-osx-386
+  - env GOOS=darwin GOARCH=amd64 go build -o timezilla-osx-amd64
+  - env GOOS=darwin GOARCH=arm go build -o timezilla-osx-arm
+  - env GOOS=darwin GOARCH=arm64 go build -o timezilla-osx-arm64
+  - env GOOS=dragonfly GOARCH=amd64 go build -o timezilla-dragonflybsd-amd64
+  - env GOOS=freebsd GOARCH=386 go build -o timezilla-freebsd-386
+  - env GOOS=freebsd GOARCH=amd64 go build -o timezilla-freebsd-amd64
+  - env GOOS=freebsd GOARCH=arm go build -o timezilla-freebsd-arm
+  - env GOOS=linux GOARCH=386 go build -o timezilla-linux-386
+  - env GOOS=linux GOARCH=amd64 go build -o timezilla-linux-amd64
+  - env GOOS=linux GOARCH=arm go build -o timezilla-linux-arm
+  - env GOOS=linux GOARCH=arm64 go build -o timezilla-linux-arm64
+  - env GOOS=linux GOARCH=ppc64 go build -o timezilla-linux-ppc64
+  - env GOOS=linux GOARCH=ppc64le go build -o timezilla-linux-ppc64le
+  - env GOOS=linux GOARCH=mips64 go build -o timezilla-linux-mips64
+  - env GOOS=linux GOARCH=mips64le go build -o timezilla-linux-mips64le
+  - env GOOS=netbsd GOARCH=386 go build -o timezilla-netbsd-386
+  - env GOOS=netbsd GOARCH=amd64 go build -o timezilla-netbsd-amd64
+  - env GOOS=netbsd GOARCH=arm go build -o timezilla-netbsd-arm
+  - env GOOS=openbsd GOARCH=386 go build -o timezilla-openbsd-386
+  - env GOOS=openbsd GOARCH=amd64 go build -o timezilla-openbsd-amd64
+  - env GOOS=openbsd GOARCH=arm go build -o timezilla-openbsd-arm
+  - env GOOS=plan9 GOARCH=386 go build -o timezilla-plan9-386
+  - env GOOS=plan9 GOARCH=amd64 go build -o timezilla-plan9-amd64
+  - env GOOS=solaris GOARCH=amd64 go build -o timezilla-solaris-amd64
+  - env GOOS=windows GOARCH=386 go build -o timezilla-windows-386
+  - env GOOS=windows GOARCH=amd64 go build -o timezilla-windows-amd64
 deploy:
   provider: releases
   api_key:
