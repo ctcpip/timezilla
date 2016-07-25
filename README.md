@@ -3,7 +3,6 @@
 a simple timer for the console/terminal
 
 ![Build Status](https://img.shields.io/travis/ctcpip/timezilla.svg)
-![Development Status](https://img.shields.io/badge/development%20status-pre--alpha-red.svg)
 [![Code Climate](https://img.shields.io/codeclimate/github/ctcpip/timezilla.svg)](https://codeclimate.com/github/ctcpip/timezilla)
 [![Issue Count](https://img.shields.io/codeclimate/issues/github/ctcpip/timezilla.svg)](https://codeclimate.com/github/ctcpip/timezilla/issues)
 [![License](https://img.shields.io/badge/license-GNU%20GPLv3-blue.svg)](./LICENSE)
@@ -15,11 +14,17 @@ a simple timer for the console/terminal
     1. the terminal screen will flash red on/off
     1. the terminal bell will ring _(every 30 seconds)_
     1. a desktop notification is sent _(only for the following operating systems*)_
-        * __GNU/Linux__ using _libnotify_ `notify-send`
-        * __OS X 10.9+__ using _AppleScript_ `display notification`
+      * __GNU/Linux__ using _libnotify_ `notify-send`
+      * __OS X 10.9+__ using _AppleScript_ `display notification`
 * use CTRL+C to exit
 
 \*see [notifize](http://github.com/ctcpip/notifize) package for more information on desktop notification support for other operating systems
+
+## installation
+
+download the binary for your platform from the __[releases page](http://github.com/ctcpip/timezilla/releases/latest)__
+
+alternately, to build from source, install and update this Go application with `go get -u github.com/ctcpip/timezilla`
 
 ## usage instructions
 
