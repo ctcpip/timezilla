@@ -4,7 +4,6 @@ before_script:
 before_deploy:
   - env GOOS=darwin GOARCH=386 go build -o timezilla-osx-386
   - env GOOS=darwin GOARCH=amd64 go build -o timezilla-osx-amd64
-  - env GOOS=darwin GOARCH=arm64 go build -o timezilla-osx-arm64
   - env GOOS=dragonfly GOARCH=amd64 go build -o timezilla-dragonflybsd-amd64
   - env GOOS=freebsd GOARCH=386 go build -o timezilla-freebsd-386
   - env GOOS=freebsd GOARCH=amd64 go build -o timezilla-freebsd-amd64
@@ -35,7 +34,6 @@ deploy:
   file:
     - "timezilla-osx-386"
     - "timezilla-osx-amd64"
-    - "timezilla-osx-arm64"
     - "timezilla-dragonflybsd-amd64"
     - "timezilla-freebsd-386"
     - "timezilla-freebsd-amd64"
