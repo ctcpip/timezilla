@@ -21,8 +21,8 @@ before_deploy:
   - env GOOS=openbsd GOARCH=386 go build -o timezilla-openbsd-386
   - env GOOS=openbsd GOARCH=amd64 go build -o timezilla-openbsd-amd64
   - env GOOS=openbsd GOARCH=arm go build -o timezilla-openbsd-arm
-  - env GOOS=windows GOARCH=386 go build -o timezilla-windows-386
-  - env GOOS=windows GOARCH=amd64 go build -o timezilla-windows-amd64
+  - env GOOS=windows GOARCH=386 go build -o timezilla-windows-386.exe
+  - env GOOS=windows GOARCH=amd64 go build -o timezilla-windows-amd64.exe
 deploy:
   provider: releases
   api_key:
@@ -47,8 +47,8 @@ deploy:
     - "timezilla-openbsd-386"
     - "timezilla-openbsd-amd64"
     - "timezilla-openbsd-arm"
-    - "timezilla-windows-386"
-    - "timezilla-windows-amd64"
+    - "timezilla-windows-386.exe"
+    - "timezilla-windows-amd64.exe"
   skip_cleanup: true
   on:
     repo: ctcpip/timezilla
