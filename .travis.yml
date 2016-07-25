@@ -4,7 +4,6 @@ before_script:
 before_deploy:
   - env GOOS=darwin GOARCH=386 go build -o timezilla-osx-386
   - env GOOS=darwin GOARCH=amd64 go build -o timezilla-osx-amd64
-  - env GOOS=darwin GOARCH=arm go build -o timezilla-osx-arm
   - env GOOS=darwin GOARCH=arm64 go build -o timezilla-osx-arm64
   - env GOOS=dragonfly GOARCH=amd64 go build -o timezilla-dragonflybsd-amd64
   - env GOOS=freebsd GOARCH=386 go build -o timezilla-freebsd-386
@@ -33,7 +32,33 @@ deploy:
   provider: releases
   api_key:
     secure: YAskt+54jKSyFzrNq0Arb0rGLDP6InMDHrBXT7DAzFW5eKyKKRYg4r+wFYHWpHe8SDWTN4DeuQG4NDXEYrFpDa4qQsKlIPOx9dY47XHjIpL7z6svCRaUk1adP7HixNd0n4xDtvPGr96jV9/JJgCyxY9KTC1CYikTjKzRFio0yM43kUsVv8U8SBPCfOCumePHrDw/gdP/0X9HLXVJqiJjjNBk3Qhj0lBRR/xQsjO/3Kb+WLvlTG1SMX4EUflX0BVNoSTkI04/Sk5o+JQBmLcPsHqkCuj1JwltedEUqBcnvNvEp6Ut09TvQzQpNMYiSMTqDEX7pB86PS6dmQNyaIpqWWZk6eRVjKJLoECReq8+qKP0Ceqt3w11P64v1VcAxsB3Fw0fDfHVWLffHCIfq6wjhE86qOOOKaTCWUf50BXUYvE3voMWb3Arfd4dSL8JXHLkQRJ0+Ye4SR94xI0XYj549Us4lSiQsR5zii5NGQhiCpUMgHRChpsAQIflikonmiaVheocJS0YooqhNqhUS728BIARqnMknvqCTsCsSIPvhFX11yXoYc7b0BRLwj3xPqacRFSvglyr+46GeI3uNlTermorwk2nwmQNECy17LiNvTMUvVjwAPtzMeZGiWSqbfjxvbsLmKIP9WaD7+bQ+vyE06V/mIehobRDwZQXtROgWt8=
-  file: 'timezilla_linux_amd64'
+  file:
+    - "timezilla-osx-386"
+    - "timezilla-osx-amd64"
+    - "timezilla-osx-arm64"
+    - "timezilla-dragonflybsd-amd64"
+    - "timezilla-freebsd-386"
+    - "timezilla-freebsd-amd64"
+    - "timezilla-freebsd-arm"
+    - "timezilla-linux-386"
+    - "timezilla-linux-amd64"
+    - "timezilla-linux-arm"
+    - "timezilla-linux-arm64"
+    - "timezilla-linux-ppc64"
+    - "timezilla-linux-ppc64le"
+    - "timezilla-linux-mips64"
+    - "timezilla-linux-mips64le"
+    - "timezilla-netbsd-386"
+    - "timezilla-netbsd-amd64"
+    - "timezilla-netbsd-arm"
+    - "timezilla-openbsd-386"
+    - "timezilla-openbsd-amd64"
+    - "timezilla-openbsd-arm"
+    - "timezilla-plan9-386"
+    - "timezilla-plan9-amd64"
+    - "timezilla-solaris-amd64"
+    - "timezilla-windows-386"
+    - "timezilla-windows-amd64"
   skip_cleanup: true
   on:
     repo: ctcpip/timezilla
