@@ -22,4 +22,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 package main
 
-var s screen
+import "time"
+
+var scr screen
+var duration time.Duration
+var timer *time.Timer
+var timerPaused bool
+var pause = make(chan bool, 1)

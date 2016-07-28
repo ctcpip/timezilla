@@ -38,14 +38,13 @@ type app struct{}
 func (a *app) init() {
 
 	var k keyboard
-	var d time.Duration
 
 	booContinue := true
 
 	if len(os.Args) > 1 {
 
 		if a, err := strconv.ParseFloat(os.Args[1], 64); err == nil {
-			d = time.Millisecond * time.Duration(a*60000)
+			duration = time.Millisecond * time.Duration(a*60000)
 		} else {
 			printHelp(os.Args[1])
 			booContinue = false
@@ -55,18 +54,18 @@ func (a *app) init() {
 
 	if booContinue {
 
-		if d == 0 {
-			d = time.Minute * 25
+		if duration == 0 {
+			duration = time.Minute * 25
 		}
 
-		d += time.Second * 1
+		duration += time.Second * 1
 
-		timer := time.NewTimer(d)
+		timer = time.NewTimer(duration)
 		abort := make(chan bool, 1)
 
-		s.init()
+		scr.init()
 
-		go countdown(d, abort)
+		go countdown(duration, abort)
 
 		go func() {
 			<-timer.C
@@ -92,9 +91,26 @@ func countdown(d time.Duration, abort chan bool) {
 	for {
 
 		select {
+
 		case <-t.C:
-			clearTime()
-			drawTime(endTime)
+
+			if !timerPaused {
+				clearTime()
+				drawTime(endTime)
+			}
+
+		case <-pause:
+
+			timerPaused = !timerPaused
+
+			if timerPaused {
+				timer.Stop()
+				d = endTime.Sub(time.Now())
+			} else {
+				timer.Reset(d)
+				endTime = time.Now().Add(d)
+			}
+
 		case <-abort:
 			return
 		}
@@ -111,7 +127,7 @@ func clearTime() {
 
 func drawTime(endTime time.Time) {
 	remainingTime := endTime.Sub(time.Now())
-	s.drawText(getTimeString(remainingTime), 3, 3)
+	scr.drawText(getTimeString(remainingTime), 3, 3)
 	termbox.Flush()
 }
 
@@ -171,4 +187,4 @@ func alertVisual() {
 
 }
 
-func (a *app) close() { s.close() }
+func (a *app) close() { scr.close() }

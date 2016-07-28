@@ -40,6 +40,8 @@ loopyMcLoopface:
 			switch {
 			case e.Key == termbox.KeyCtrlC:
 				break loopyMcLoopface
+			case e.Ch == 'p':
+				pause <- true
 			}
 
 		case termbox.EventError:
