@@ -35,12 +35,12 @@ func (s *screen) init() {
 	}
 
 	termbox.Clear(termbox.ColorDefault, termbox.ColorDefault)
-	s.writeText(strHeader, 0, 0)
+	s.drawText(strHeader, 0, 0)
 	termbox.Flush()
 
 }
 
-func (s *screen) writeText(text string, startX, y int) {
+func (s *screen) drawText(text string, startX, y int) {
 
 	currX := startX
 

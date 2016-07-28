@@ -84,36 +84,35 @@ func (a *app) init() {
 
 func countdown(d time.Duration, abort chan bool) {
 
-	var remainingTime time.Duration
-
-	t := time.NewTicker(time.Second * 1)
+	t := time.NewTicker(time.Millisecond * 500)
 	endTime := time.Now().Add(d)
 
-	remainingTime = endTime.Sub(time.Now())
-	s.writeText(getTimeString(remainingTime), 3, 3)
-	termbox.Flush()
+	drawTime(endTime)
 
 	for {
 
 		select {
 		case <-t.C:
-
-			for x := 0; x < 80; x++ {
-				termbox.SetCell(x, 3, ' ', termbox.ColorDefault, termbox.ColorDefault)
-			}
-
-			remainingTime = endTime.Sub(time.Now())
-
-			s.writeText(getTimeString(remainingTime), 3, 3)
-
-			termbox.Flush()
-
+			clearTime()
+			drawTime(endTime)
 		case <-abort:
 			return
 		}
 
 	}
 
+}
+
+func clearTime() {
+	for x := 0; x < 80; x++ {
+		termbox.SetCell(x, 3, ' ', termbox.ColorDefault, termbox.ColorDefault)
+	}
+}
+
+func drawTime(endTime time.Time) {
+	remainingTime := endTime.Sub(time.Now())
+	s.drawText(getTimeString(remainingTime), 3, 3)
+	termbox.Flush()
 }
 
 func alertNotification() {
