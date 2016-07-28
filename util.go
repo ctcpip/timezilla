@@ -30,11 +30,22 @@ import (
 
 func getTimeString(d time.Duration) string {
 
+	var strTime string
+
 	if d < time.Second*1 {
-		return "0"
+		strTime = "0"
 	}
 
-	return strings.Split(d.String(), ".")[0] + "s"
+	s := d.String()
+	a := strings.Split(s, ".")
+
+	if len(a) > 1 {
+		strTime = a[0] + "s" // discard fractional seconds
+	} else {
+		strTime = s
+	}
+
+	return strTime
 
 }
 
