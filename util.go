@@ -34,15 +34,17 @@ func getTimeString(d time.Duration) string {
 
 	if d < time.Second*1 {
 		strTime = "0"
-	}
-
-	s := d.String()
-	a := strings.Split(s, ".")
-
-	if len(a) > 1 {
-		strTime = a[0] + "s" // discard fractional seconds
 	} else {
-		strTime = s
+
+		s := d.String()
+		a := strings.Split(s, ".")
+
+		if len(a) > 1 {
+			strTime = a[0] + "s" // discard fractional seconds
+		} else {
+			strTime = s
+		}
+
 	}
 
 	return strTime
