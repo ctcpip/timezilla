@@ -2,7 +2,7 @@
 
 a simple timer for the console/terminal
 
-![Build Status](https://img.shields.io/travis/ctcpip/timezilla.svg)
+[![Build Status](https://img.shields.io/travis/ctcpip/timezilla.svg)](http://travis-ci.org/ctcpip/timezilla)
 [![Code Climate](https://img.shields.io/codeclimate/github/ctcpip/timezilla.svg)](https://codeclimate.com/github/ctcpip/timezilla)
 [![Issue Count](https://img.shields.io/codeclimate/issues/github/ctcpip/timezilla.svg)](https://codeclimate.com/github/ctcpip/timezilla/issues)
 [![License](https://img.shields.io/badge/license-GNU%20GPLv3-blue.svg)](./LICENSE)
