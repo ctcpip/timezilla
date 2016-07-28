@@ -40,7 +40,7 @@ loopyMcLoopface:
 			switch {
 			case e.Key == termbox.KeyCtrlC:
 				break loopyMcLoopface
-			case e.Ch == 'p':
+			case e.Ch == 'p', e.Ch == 'P':
 				pause <- true
 			}
 
