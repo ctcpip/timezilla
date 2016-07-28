@@ -83,6 +83,7 @@ func (a *app) init() {
 
 func countdown(d time.Duration, abort chan bool) {
 
+	var toggle bool
 	t := time.NewTicker(time.Millisecond * 500)
 	endTime := time.Now().Add(d)
 
@@ -97,6 +98,17 @@ func countdown(d time.Duration, abort chan bool) {
 			if !timerPaused {
 				clearTime()
 				drawTime(endTime)
+			} else {
+
+				if toggle {
+					clearPauseDisplay()
+				} else {
+					scr.drawColoredText("PAUSED", 3, 5, termbox.ColorWhite, termbox.ColorRed)
+					termbox.Flush()
+				}
+
+				toggle = !toggle
+
 			}
 
 		case <-pause:
@@ -109,6 +121,8 @@ func countdown(d time.Duration, abort chan bool) {
 			} else {
 				timer.Reset(d)
 				endTime = time.Now().Add(d)
+				clearPauseDisplay()
+				toggle = false
 			}
 
 		case <-abort:
@@ -117,6 +131,11 @@ func countdown(d time.Duration, abort chan bool) {
 
 	}
 
+}
+
+func clearPauseDisplay() {
+	scr.drawText("      ", 3, 5)
+	termbox.Flush()
 }
 
 func clearTime() {
