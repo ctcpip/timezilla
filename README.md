@@ -2,6 +2,7 @@
 
 a simple timer for the console/terminal
 
+![Version 1.1.0](https://img.shields.io/badge/version-1.1.0-blue.svg)
 [![Build Status](https://img.shields.io/travis/ctcpip/timezilla.svg)](http://travis-ci.org/ctcpip/timezilla)
 [![Code Climate](https://img.shields.io/codeclimate/github/ctcpip/timezilla.svg)](https://codeclimate.com/github/ctcpip/timezilla)
 [![Issue Count](https://img.shields.io/codeclimate/issues/github/ctcpip/timezilla.svg)](https://codeclimate.com/github/ctcpip/timezilla/issues)
@@ -15,8 +16,10 @@ a simple timer for the console/terminal
     1. the terminal bell will ring _(every 30 seconds)_
     1. a desktop notification is sent _(only for the following operating systems*)_
       * __GNU/Linux__ using _libnotify_ `notify-send`
+        * copy [clock.png](http://github.com/ctcpip/timezilla/blob/master/clock.png) into the application directory to display a clock icon in the notification
       * __OS X 10.9+__ using _AppleScript_ `display notification`
-* use CTRL+C to exit
+* P to pause
+* CTRL+C to exit
 
 \*see [notifize](http://github.com/ctcpip/notifize) package for more information on desktop notification support for other operating systems
 
@@ -44,7 +47,7 @@ timezilla 10.1  # 10 minute, six second timer
 
 ### inspiration
 
-I started this project to provide a simple timer for use with the [pomodoro technique](http://en.wikipedia.org/wiki/Pomodoro_Technique), a time management method.
+I started this project to provide a simple timer for use with the [pomodoro technique](http://en.wikipedia.org/wiki/Pomodoro_Technique), a time management method. this application is written in Go / golang.
 
 ### stuff nobody cares about
 

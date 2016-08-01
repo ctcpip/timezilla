@@ -24,7 +24,7 @@ package main
 
 import "fmt"
 
-const version = "1.0.0"
+const version = "1.1.0"
 
 var strHeader = fmt.Sprintf("timezilla %s (C) 2016  Chris de Almeida     \"timezilla -h\" for more info", version)
 
@@ -37,17 +37,14 @@ usage: timezilla [minutes]
    minutes specified in fractional minutes
    if no minutes specified, timer will default to 25 minutes (pomodoro standard)
 
-timezilla       # default 25 minute timer
-timezilla .5    # 30 second timer
-timezilla 2.5   # 2 minute, 30 second timer
-timezilla 5     # 5 minute timer
-timezilla 10.1  # 10 minute, six second timer
+   timezilla       # default 25 minute timer
 
--the timer will count down from the specified time
--when the time is up, three things happen:
-   1. an OS notification is sent (using libnotify or growl)
-   2. the terminal screen will flash red on/off
-   3. the terminal bell will ring
--use CTRL+C to exit
+   timezilla .5    # 30 second timer
+   timezilla 1     # 1 minute timer
+   timezilla 2.5   # 2 minute, 30 second timer
+   timezilla 5     # 5 minute timer
+   timezilla 10.1  # 10 minute, six second timer
+
+see http://github.com/ctcpip/timezilla for more usage details
 
 `, version)
