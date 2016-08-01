@@ -2,10 +2,10 @@
 
 a simple timer for the console/terminal
 
-![Version 1.1.0](https://img.shields.io/badge/version-1.1.0-blue.svg)
+[![Version 1.1.0](https://img.shields.io/badge/version-1.1.0-blue.svg)](http://github.com/ctcpip/timezilla/releases/latest)
 [![Build Status](https://img.shields.io/travis/ctcpip/timezilla.svg)](http://travis-ci.org/ctcpip/timezilla)
-[![Code Climate](https://img.shields.io/codeclimate/github/ctcpip/timezilla.svg)](https://codeclimate.com/github/ctcpip/timezilla)
-[![Issue Count](https://img.shields.io/codeclimate/issues/github/ctcpip/timezilla.svg)](https://codeclimate.com/github/ctcpip/timezilla/issues)
+[![Code Climate](https://img.shields.io/codeclimate/github/ctcpip/timezilla.svg)](http://codeclimate.com/github/ctcpip/timezilla)
+[![Issue Count](https://img.shields.io/codeclimate/issues/github/ctcpip/timezilla.svg)](http://codeclimate.com/github/ctcpip/timezilla/issues)
 [![License](https://img.shields.io/badge/license-GNU%20GPLv3-blue.svg)](./LICENSE)
 
 ## how it works
