@@ -10,7 +10,6 @@ jobs:
       matrix:
         # build and publish in parallel:
         goos: [aix, android, darwin, dragonfly, freebsd, illumos, ios, js, linux, netbsd, openbsd, plan9, solaris, windows]
-        goarch: []
         include:
           - goos: aix
             goarch: ppc64
