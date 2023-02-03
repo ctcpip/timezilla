@@ -10,6 +10,7 @@ jobs:
       matrix:
         # build and publish in parallel:
         goos: [aix, android, darwin, dragonfly, freebsd, illumos, ios, js, linux, netbsd, openbsd, plan9, solaris, windows]
+        goarch: []
         include:
           - goos: aix
             goarch: ppc64
@@ -25,4 +26,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         goos: ${{ matrix.goos }}
         goarch: ${{ matrix.goarch }}
-        asset_name: ${{ env.REPOSITORY_NAME }}-${{ matrix.goos }}-${{ matrix.goarch }}
+        asset_name: ${{ BINARY_NAME }}-${{ matrix.goos }}-${{ matrix.goarch }}
