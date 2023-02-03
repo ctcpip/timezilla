@@ -1,6 +1,7 @@
 on:
   release:
     types: [created]
+on: workflow_dispatch
 
 jobs:
   releases-matrix:
