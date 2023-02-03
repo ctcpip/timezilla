@@ -14,7 +14,8 @@ jobs:
           - goos: aix
             goarch: ppc64
           - goos: android
-            goarch: ["386", amd64]
+            goarch: "386"
+            goarch: amd64
     steps:
     - name: OS darwin
       if: matrix.goos == 'darwin'
