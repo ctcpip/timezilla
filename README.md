@@ -4,8 +4,6 @@ a simple timer for the console/terminal
 
 [![Version 1.1.0](https://img.shields.io/badge/version-1.1.0-blue.svg)](http://github.com/ctcpip/timezilla/releases/latest)
 [![Build Status](https://img.shields.io/travis/ctcpip/timezilla.svg)](http://travis-ci.org/ctcpip/timezilla)
-[![Code Climate](https://img.shields.io/codeclimate/github/ctcpip/timezilla.svg)](http://codeclimate.com/github/ctcpip/timezilla)
-[![Issue Count](https://img.shields.io/codeclimate/issues/github/ctcpip/timezilla.svg)](http://codeclimate.com/github/ctcpip/timezilla/issues)
 [![License](https://img.shields.io/badge/license-GNU%20GPLv3-blue.svg)](./LICENSE)
 
 ## how it works
@@ -27,7 +25,7 @@ a simple timer for the console/terminal
 
 download the binary for your platform from the __[releases page](http://github.com/ctcpip/timezilla/releases/latest)__
 
-alternately, to build from source, install and update this Go application with `go get -u github.com/ctcpip/timezilla`
+alternately, to build from source, install this Go application with `go install github.com/ctcpip/timezilla@latest`
 
 ## usage instructions
 
