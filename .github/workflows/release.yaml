@@ -1,0 +1,24 @@
+on:
+  release:
+    types: [created]
+
+jobs:
+  releases-matrix:
+    name: Release Go Binaries
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # build and publish in parallel:
+        goos: [aix, android, darwin, dragonfly, freebsd, illumos, ios, js, linux, netbsd, openbsd, plan9, solaris, windows]
+        goarch: ["386", amd64, arm, arm64, loong64, mips, mips64, mips64le, mipsle, ppc64, ppc64le, riscv64, s390x, wasm]
+    steps:
+    - name: OS darwin
+      if: matrix.goos == 'darwin'
+      run: echo "OS_NAME=macOS" >> $GITHUB_ENV
+    - uses: actions/checkout@v3
+    - uses: wangyoucao577/go-release-action@v1.35
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        goos: ${{ matrix.goos }}
+        goarch: ${{ matrix.goarch }}
+        asset_name: ${{ env.REPOSITORY_NAME }}-${{ matrix.goos }}-${{ matrix.goarch }}
