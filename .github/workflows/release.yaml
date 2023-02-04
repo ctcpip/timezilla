@@ -11,14 +11,14 @@ jobs:
       matrix:
         # build and publish in parallel:
         include:
-          - goos: aix
-            goarch: ppc64
-          - goos: android
-            goarch: "386"
+          # - goos: aix
+          #   goarch: ppc64
+          # - goos: android
+          #   goarch: "386"
           - goos: android
             goarch: amd64
-          - goos: android
-            goarch: arm
+          # - goos: android
+          #   goarch: arm
           - goos: android
             goarch: arm64
           - goos: darwin
@@ -37,14 +37,14 @@ jobs:
             goarch: arm64
           - goos: freebsd
             goarch: riscv64
-          - goos: illumos
-            goarch: amd64
-          - goos: ios
-            goarch: amd64
-          - goos: ios
-            goarch: arm64
-          - goos: js
-            goarch: wasm
+          # - goos: illumos
+          #   goarch: amd64
+          # - goos: ios
+          #   goarch: amd64
+          # - goos: ios
+          #   goarch: arm64
+          # - goos: js
+          #   goarch: wasm
           - goos: linux
             goarch: "386"
           - goos: linux
@@ -89,14 +89,14 @@ jobs:
             goarch: arm64
           - goos: openbsd
             goarch: mips64
-          - goos: plan9
-            goarch: "386"
-          - goos: plan9
-            goarch: amd64
-          - goos: plan9
-            goarch: arm
-          - goos: solaris
-            goarch: amd64
+          # - goos: plan9
+          #   goarch: "386"
+          # - goos: plan9
+          #   goarch: amd64
+          # - goos: plan9
+          #   goarch: arm
+          # - goos: solaris
+          #   goarch: amd64
           - goos: windows
             goarch: "386"
           - goos: windows
@@ -106,7 +106,8 @@ jobs:
           - goos: windows
             goarch: arm64
     steps:
-    - name: OS darwin
+    - name: OS name
+      echo "OS_NAME=${{ matrix.goos }}" >> $GITHUB_ENV
       if: matrix.goos == 'darwin'
       run: echo "OS_NAME=macOS" >> $GITHUB_ENV
     - uses: actions/checkout@v3
