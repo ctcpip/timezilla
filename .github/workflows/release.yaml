@@ -106,8 +106,9 @@ jobs:
           - goos: windows
             goarch: arm64
     steps:
-    - name: OS name
+    - name: default OS name
       run: echo "OS_NAME=${{ matrix.goos }}" >> $GITHUB_ENV
+    - name: macOS name
       if: matrix.goos == 'darwin'
       run: echo "OS_NAME=macOS" >> $GITHUB_ENV
     - uses: actions/checkout@v3
