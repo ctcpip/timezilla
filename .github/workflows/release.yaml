@@ -115,6 +115,7 @@ jobs:
     - uses: wangyoucao577/go-release-action@v1.35
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        md5sum: false
         goos: ${{ matrix.goos }}
         goarch: ${{ matrix.goarch }}
         asset_name: timezilla-${{ env.OS_NAME }}-${{ matrix.goarch }}
