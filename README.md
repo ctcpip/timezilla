@@ -2,8 +2,7 @@
 
 a simple timer for the console/terminal
 
-[![Version 1.1.0](https://img.shields.io/badge/version-1.1.0-blue.svg)](http://github.com/ctcpip/timezilla/releases/latest)
-[![Build Status](https://img.shields.io/travis/ctcpip/timezilla.svg)](http://travis-ci.org/ctcpip/timezilla)
+[![Version 1.1.1](https://img.shields.io/badge/version-1.1.1-blue.svg)](http://github.com/ctcpip/timezilla/releases/latest)
 [![License](https://img.shields.io/badge/license-GNU%20GPLv3-blue.svg)](./LICENSE)
 
 ## how it works
