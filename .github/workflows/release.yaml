@@ -7,6 +7,7 @@ jobs:
     name: Release Go Binaries
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         # build and publish in parallel:
         include:
@@ -15,6 +16,8 @@ jobs:
           - goos: android
             goarch: "386"
           - goos: android
+            goarch: amd64
+          - goos: freebsd
             goarch: amd64
     steps:
     - name: OS darwin
