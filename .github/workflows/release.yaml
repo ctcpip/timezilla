@@ -9,12 +9,12 @@ jobs:
     strategy:
       matrix:
         # build and publish in parallel:
-        goos: [aix, android, darwin, dragonfly, freebsd, illumos, ios, js, linux, netbsd, openbsd, plan9, solaris, windows]
         include:
           - goos: aix
             goarch: ppc64
           - goos: android
             goarch: "386"
+          - goos: android
             goarch: amd64
     steps:
     - name: OS darwin
