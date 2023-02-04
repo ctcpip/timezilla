@@ -9,23 +9,23 @@ func (k *keyboard) init() { k.read() }
 func (k *keyboard) read() {
 
 loopyMcLoopface:
-	for {
+  for {
 
-		switch e := termbox.PollEvent(); e.Type {
+    switch e := termbox.PollEvent(); e.Type {
 
-		case termbox.EventKey:
+    case termbox.EventKey:
 
-			switch {
-			case e.Key == termbox.KeyCtrlC:
-				break loopyMcLoopface
-			case e.Ch == 'p', e.Ch == 'P':
-				pause <- true
-			}
+      switch {
+      case e.Key == termbox.KeyCtrlC:
+        break loopyMcLoopface
+      case e.Ch == 'p', e.Ch == 'P':
+        pause <- true
+      }
 
-		case termbox.EventError:
-			panic(e.Err)
-		}
+    case termbox.EventError:
+      panic(e.Err)
+    }
 
-	}
+  }
 
 }
