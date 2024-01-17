@@ -12,9 +12,9 @@ a simple timer for the console/terminal
     1. the terminal screen will flash red on/off
     1. the terminal bell will ring _(every 30 seconds)_
     1. a desktop notification is sent _(only for the following operating systems*)_
-      * __GNU/Linux__ using _libnotify_ `notify-send`
-        * copy [clock.png](http://github.com/ctcpip/timezilla/blob/master/clock.png) into the application directory to display a clock icon in the notification
-      * __OS X 10.9+__ using _AppleScript_ `display notification`
+       * __GNU/Linux__ using _libnotify_ `notify-send`
+          * copy [clock.png](http://github.com/ctcpip/timezilla/blob/master/clock.png) into the application directory to display a clock icon in the notification
+       * __OS X 10.9+__ using _AppleScript_ `display notification`
 * P to pause
 * CTRL+C to exit
 
